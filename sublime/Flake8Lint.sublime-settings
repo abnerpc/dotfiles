@@ -1,0 +1,8 @@
+{
+    // popup a dialog of detected conditions?
+    "popup": false,
+    // highlight detected conditions?
+    "highlight": false,
+
+    "ignore": ["D100", "D101", "D102", "D103", "D104", "D105", "D400", "I100", "I101"],
+}

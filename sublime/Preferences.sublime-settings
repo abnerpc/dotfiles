@@ -1,7 +1,6 @@
 {
 	"animation_enabled": false,
 	"atomic_save": false,
-	"color_scheme": "Packages/User/base16-ocean.dark (Flake8Lint).tmTheme",
 	"font_size": 12,
 	"highlight_line": true,
 	"hot_exit": false,
@@ -16,7 +15,6 @@
 	],
 	"show_encoding": true,
 	"tab_size": 4,
-	"theme": "Spacegray.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"tree_animation_enabled": false,
 	"trim_automatic_white_space": true,

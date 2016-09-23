@@ -1,7 +1,7 @@
 export ZSH=/Users/abnerpc/.oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
 
-ZSH_THEME="gallifrey"
+ZSH_THEME="geoffgarside"
 
 plugins=(git)
 
