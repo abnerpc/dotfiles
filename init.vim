@@ -19,19 +19,11 @@ let g:netrw_banner=0
 autocmd BufEnter * silent! :lcd%:p:h
  
  
-
-" powerline
-set laststatus=2
-let g:Powerline_symbols = 'fancy'
-set guifont=Inconsolata\ for\ Powerline:h14
-set fillchars+=stl:\ ,stlnc:\
-
-
-
 " flake8 config
 "let g:flake8_show_quickfix=0
 "let g:flake8_show_in_file=1
-autocmd BufWritePost *.py call Flake8()
+"autocmd BufWritePost *.py call Flake8()
+command Flake8 call Flake8()
 
 
 " ctrlp
@@ -41,14 +33,11 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
- 
-
 
 
 " set colorscheme
 set background=dark
 colorscheme lucius
-
 
 
 " general configs
