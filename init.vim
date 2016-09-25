@@ -8,6 +8,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
