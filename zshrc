@@ -1,7 +1,7 @@
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/abnerpc/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="geoffgarside"
 plugins=(git mercurial sublime web-search)
