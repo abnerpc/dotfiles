@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
-Plug 'jonathanfilip/vim-lucius'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
@@ -14,7 +13,7 @@ call plug#end()
 
 " netrw
 let g:netrw_liststyle=3
-let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,*.git$'
+let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,*.git$,*.hg$'
 let g:netrw_banner=0
 " set default directory
 autocmd BufEnter * silent! :lcd%:p:h
@@ -36,18 +35,11 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 
-" set colorscheme
-set background=dark
-colorscheme lucius
-
-
 " general configs
 syntax on
 set nu
+set ruler
 set encoding=utf-8
-set clipboard=unnamed
-set backspace=2
-set backspace=indent,eol,start
 set nowrap
 let python_highlight_all=1
 let mapleader = ","
@@ -57,12 +49,13 @@ let mapleader = ","
 set nobackup
 set nowritebackup
 set noswapfile
+set clipboard+=unnamedplus
 
 
 " custom conf for specific files
-au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
-au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth=2
-
-
-"fix :E command
-let g:loaded_logipat = 1
+autocmd FileType * setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab fileformat=unix
+augroup filetypedetect
+    au BufRead,BufNewFile *.jinja2 setfiletype html
+    " associate *.jinja2 with html filetype
+augroup END

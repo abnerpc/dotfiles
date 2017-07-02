@@ -21,5 +21,6 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+
+export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
 source $VIRTUALENVWRAPPER_SCRIPT
