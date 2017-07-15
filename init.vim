@@ -37,6 +37,7 @@ let g:ctrlp_custom_ignore = {
 
 " general configs
 syntax on
+filetype on
 set nu
 set ruler
 set encoding=utf-8
@@ -53,8 +54,8 @@ set clipboard+=unnamedplus
 
 
 " custom conf for specific files
-autocmd FileType * setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab fileformat=unix
+autocmd FileType * setlocal tabstop=2 softtabstop=2 expandtab
+autocmd FileType python setlocal tabstop=4 softtabstop=4 expandtab fileformat=unix
 augroup filetypedetect
     au BufRead,BufNewFile *.jinja2 setfiletype html
     " associate *.jinja2 with html filetype
