@@ -15,6 +15,8 @@ ZSH_THEME_HG_PROMPT_SUFFIX=")%{$reset_color%}"
 # User configuration
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
+export EDITOR=/usr/local/bin/nvim
+
 export GOPATH=$HOME/projects/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
@@ -22,5 +24,5 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 
-export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 source $VIRTUALENVWRAPPER_SCRIPT
