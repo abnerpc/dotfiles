@@ -70,6 +70,7 @@ augroup filetypedetect
 augroup END
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth=4 fileformat=unix
 autocmd BufRead,BufNewFile *.html,*.css,*.js,*.jinja2 setlocal tabstop=2 shiftwidth=2
+autocmd FileType netrw setl bufhidden=delete
 
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
