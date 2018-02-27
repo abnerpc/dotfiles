@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -10,6 +9,7 @@ Plug 'fatih/vim-go'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'bling/vim-airline'
 Plug 'ajh17/Spacegray.vim'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
@@ -36,11 +36,17 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+"syntastic
+let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_auto_jump = 1
 
 " general configs
 syntax on
 filetype on
-set list
+
 set nu
 set ruler
 set encoding=utf-8
@@ -51,6 +57,12 @@ set nocindent           " I indent my code myself.
 set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
+set nohlsearch		" no highlight search
+set clipboard=unnamedplus
+set guioptions-=m       "remove menu bar
+set guioptions-=T       "remove toolbar
+:set guioptions-=r      "remove right-hand scroll bar
+:set guioptions-=L      "remove left-hand scroll bar
 
 let python_highlight_all=1
 let mapleader = ","
@@ -60,7 +72,6 @@ let mapleader = ","
 set nobackup
 set nowritebackup
 set noswapfile
-set clipboard+=unnamedplus
 
 
 " custom conf for specific files
@@ -71,12 +82,6 @@ augroup END
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth=4 fileformat=unix
 autocmd BufRead,BufNewFile *.html,*.css,*.js,*.jinja2 setlocal tabstop=2 shiftwidth=2
 autocmd FileType netrw setl bufhidden=delete
-
-
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-    nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
 
 
 " set the color-scheme

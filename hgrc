@@ -16,3 +16,4 @@ merge = internal:merge3
 # (see 'hg help extensions' for more info)
 #
 # churn =
+shelve=
