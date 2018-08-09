@@ -14,12 +14,12 @@ Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 " netrw
-let g:netrw_liststyle=3
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,*.git$,*.hg$'
 let g:netrw_banner=0
 " set default directory
-autocmd BufEnter * silent! :lcd%:p:h
-
+" autocmd BufEnter * silent! :lcd%:p:h
+" Allow netrw to remove non-empty local directories
+let g:netrw_localrmdir='rm -r'
 
 " flake8 config
 "let g:flake8_show_quickfix=0
@@ -58,11 +58,11 @@ set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set nohlsearch		" no highlight search
-set clipboard=unnamedplus
 set guioptions-=m       "remove menu bar
 set guioptions-=T       "remove toolbar
-:set guioptions-=r      "remove right-hand scroll bar
-:set guioptions-=L      "remove left-hand scroll bar
+set guioptions-=r       "remove right-hand scroll bar
+set guioptions-=L       "remove left-hand scroll bar
+set mouse=a
 
 let python_highlight_all=1
 let mapleader = ","
@@ -86,3 +86,15 @@ autocmd FileType netrw setl bufhidden=delete
 
 " set the color-scheme
 colorscheme spacegray
+
+" Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P

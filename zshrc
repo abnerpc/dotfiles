@@ -25,12 +25,7 @@ export PATH
 export PATH=$HOME/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-# virtualenvwrapper
-export VIRTUALENVWRAPPER_SCRIPT=$HOME/.local/bin/virtualenvwrapper.sh
-source $VIRTUALENVWRAPPER_SCRIPT
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/projects
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # default editor
 export EDITOR=/usr/bin/vim
