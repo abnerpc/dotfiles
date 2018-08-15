@@ -145,9 +145,10 @@ bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 # audio control
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse set Master 5%+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 5%- unmute"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse set Master 5%+ unmute && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 5%- unmute && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
 # Media Player controls
 bindsym XF86AudioPlay exec playerctl play-pause
