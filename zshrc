@@ -32,3 +32,9 @@ export EDITOR=/usr/bin/vim
 
 # golang
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/projects/go
+
+# exercism
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+  source ~/.config/exercism/exercism_completion.zsh
+fi
