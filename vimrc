@@ -9,24 +9,22 @@ Plug 'fatih/vim-go'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'bling/vim-airline'
 Plug 'ajh17/Spacegray.vim'
-Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'dgraham/vim-eslint'
 
 call plug#end()
 
 " netrw
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,*.git$,*.hg$'
 let g:netrw_banner=0
-" set default directory
-" autocmd BufEnter * silent! :lcd%:p:h
-" Allow netrw to remove non-empty local directories
-let g:netrw_localrmdir='rm -r'
+let g:netrw_localrmdir='rm -r' " Allow netrw to remove non-empty local directories
+
 
 " flake8 config
-"let g:flake8_show_quickfix=0
-"let g:flake8_show_in_file=1
-"autocmd BufWritePost *.py call Flake8()
 command Flake8 call Flake8()
 
+" eslint
+command Eslint :make % <cr>:cwindow<cr>:redraw!<cr>
 
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
@@ -36,15 +34,7 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-"syntastic
-let g:syntastic_python_checkers = ['flake8', 'pylint']
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_auto_jump = 1
-
 " general configs
-syntax on
 filetype on
 
 set nu
@@ -58,10 +48,6 @@ set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set nohlsearch		" no highlight search
-set guioptions-=m       "remove menu bar
-set guioptions-=T       "remove toolbar
-set guioptions-=r       "remove right-hand scroll bar
-set guioptions-=L       "remove left-hand scroll bar
 set mouse=a
 
 let python_highlight_all=1

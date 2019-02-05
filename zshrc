@@ -1,4 +1,5 @@
 # ohmyzsh config
+ZSH_DISABLE_COMPFIX=true
 fpath=(/usr/local/share/zsh-completions $fpath)
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="geoffgarside"
@@ -38,3 +39,12 @@ export GOPATH=$HOME/projects/go
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   source ~/.config/exercism/exercism_completion.zsh
 fi
+
+# heroku
+# $(heroku autocomplete:script zsh)
+
+alias vim="nvim"
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
