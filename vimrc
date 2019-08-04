@@ -1,30 +1,36 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'kien/ctrlp.vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'bling/vim-airline'
-Plug 'ajh17/Spacegray.vim'
 Plug 'nvie/vim-flake8'
-Plug 'dgraham/vim-eslint'
+Plug 'davidhalter/jedi-vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'rakr/vim-one'
 
 call plug#end()
+
+" vim-jedi config
+"let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#popup_on_dot = 0
+
+" ultisnips config
+let g:UltiSnipsExpandTrigger="<c-f>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " netrw
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,*.git$,*.hg$'
 let g:netrw_banner=0
 let g:netrw_localrmdir='rm -r' " Allow netrw to remove non-empty local directories
-
+let g:netrw_altv = 1
+let g:netrw_liststyle = 3
 
 " flake8 config
 command Flake8 call Flake8()
-
-" eslint
-command Eslint :make % <cr>:cwindow<cr>:redraw!<cr>
 
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
@@ -62,8 +68,8 @@ set noswapfile
 
 " custom conf for specific files
 augroup filetypedetect
-    au BufRead,BufNewFile *.jinja2 setfiletype html
     " associate *.jinja2 with html filetype
+    au BufRead,BufNewFile *.jinja2 setfiletype html
 augroup END
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth=4 fileformat=unix
 autocmd BufRead,BufNewFile *.html,*.css,*.js,*.jinja2 setlocal tabstop=2 shiftwidth=2
@@ -71,7 +77,10 @@ autocmd FileType netrw setl bufhidden=delete
 
 
 " set the color-scheme
-colorscheme spacegray
+colorscheme one
+set background=dark
+set guifont=Monaco:h16
+let g:airline_theme='one'
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y
