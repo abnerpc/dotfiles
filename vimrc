@@ -4,6 +4,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
 Plug 'rakr/vim-one'
+Plug 'ruanyl/vim-gh-line'
 
 call plug#end()
 
@@ -23,7 +24,6 @@ command Flake8 call Flake8()
 
 set path+=**
 set nocompatible
-set nu
 set encoding=utf-8
 set nowrap
 set expandtab
@@ -35,6 +35,7 @@ set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set nohlsearch		" no highlight search
 set mouse=a
 set wildmenu
+set cursorline
 
 let python_highlight_all=1
 let mapleader = ","
@@ -76,3 +77,10 @@ vnoremap <leader>P "+P
 
 let g:python3_host_prog = '/home/abnerpc/.pyenv/versions/neovim/bin/python'
 let g:python_host_prog = '/home/abnerpc/.pyenv/versions/neovim2/bin/python'
+
+
+" snippets
+inorea pdb __import__("pdb").set_trace()
+inorea ipdb __import__("ipdb").set_trace()
+inorea brk breakpoint()
+inorea ptr __import__("pytest").set_trace()

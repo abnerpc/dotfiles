@@ -1,7 +1,0 @@
-<snippet>
-    <content><![CDATA[
-__import__('pytest').set_trace()
-]]></content>
-    <tabTrigger>pttrace</tabTrigger>
-    <scope>source.python</scope>
-</snippet>
