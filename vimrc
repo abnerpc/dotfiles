@@ -1,10 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'terryma/vim-multiple-cursors'
 Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
-Plug 'rakr/vim-one'
 Plug 'ruanyl/vim-gh-line'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -15,13 +14,13 @@ let g:jedi#popup_on_dot = 0
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,*.git$,*.hg$'
 let g:netrw_banner=0
 let g:netrw_localrmdir='rm -r' " Allow netrw to remove non-empty local directories
-let g:netrw_altv = 1
+
 
 " flake8 config
 command Flake8 call Flake8()
 
-" general configs
 
+" general configs
 set path+=**
 set nocompatible
 set encoding=utf-8
@@ -31,21 +30,18 @@ set noautoindent        " I indent my code myself.
 set nocindent           " I indent my code myself.
 set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
-set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set nohlsearch		" no highlight search
 set mouse=a
 set wildmenu
 set cursorline
-
-let python_highlight_all=1
-let mapleader = ","
-filetype plugin on
-
-
-" no backup/swap files
 set nobackup
 set nowritebackup
 set noswapfile
+let python_highlight_all=1
+let mapleader = ","
+
+filetype plugin on
+colorscheme slate
 
 
 " custom conf for specific files
@@ -55,12 +51,6 @@ augroup END
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth=4 fileformat=unix
 autocmd BufRead,BufNewFile *.html,*.css,*.js,*.jinja2 setlocal tabstop=2 shiftwidth=2
 autocmd FileType netrw setl bufhidden=delete
-
-
-" set the color-scheme
-colorscheme one
-set background=dark
-set termguicolors
 
 
 " Copy to clipboard
@@ -75,12 +65,14 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-let g:python3_host_prog = '/home/abnerpc/.pyenv/versions/neovim/bin/python'
-let g:python_host_prog = '/home/abnerpc/.pyenv/versions/neovim2/bin/python'
+
+" python path
+let g:python3_host_prog = '/home/abner/.pyenv/versions/neovim/bin/python'
+let g:python_host_prog = '/home/abner/.pyenv/versions/neovim2/bin/python'
 
 
 " snippets
-inorea pdb __import__("pdb").set_trace()
-inorea ipdb __import__("ipdb").set_trace()
+inorea pdbt __import__("pdb").set_trace()
+inorea ipdbt __import__("ipdb").set_trace()
 inorea brk breakpoint()
 inorea ptr __import__("pytest").set_trace()
