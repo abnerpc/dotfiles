@@ -67,8 +67,8 @@ vnoremap <leader>P "+P
 
 
 " python path
-let g:python3_host_prog = '/home/abner/.pyenv/versions/neovim/bin/python'
-let g:python_host_prog = '/home/abner/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/home/abnerpc/.pyenv/versions/neovim/bin/python'
+let g:python_host_prog = '/home/abnerpc/.pyenv/versions/neovim2/bin/python'
 
 
 " snippets

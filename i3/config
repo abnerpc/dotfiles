@@ -197,3 +197,7 @@ bindsym Shift+Print exec xfce4-screenshooter -r
 
 # move workspace to next output
 bindsym $mod+x move workspace to output down
+
+# screen brightness
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+bindsym XF86MonBrighnessDown exec "xbacklight -dec 5"
