@@ -15,7 +15,7 @@ exec --no-startup-id xsetroot -solid "#000"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 12
+font pango:DejaVu Sans Mono 14
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -166,10 +166,11 @@ mode "$system_exit" {
 bindsym $mod+Shift+l mode "$system_exit"
 
 # mode display layout
-set $output_display (e) with external monitor, (l) only laptop display
+set $output_display (l) laptop only, (b) both laptop and external, (e) external only
 mode "$output_display" {
-    bindsym e exec "~/.screenlayout/external_monitor.sh", mode "default"
     bindsym l exec "~/.screenlayout/laptop_only.sh", mode "default"
+    bindsym b exec "~/.screenlayout/laptop_and_external.sh", mode "default"
+    bindsym e exec "~/.screenlayout/external_only.sh", mode "default"
 
     # back to normal:
     bindsym Return mode "default"
@@ -189,6 +190,7 @@ bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
 # use tab key to move workspace or apps
 bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
 bindsym $mod+Tab workspace next
 
 # screenshot
@@ -201,3 +203,6 @@ bindsym $mod+x move workspace to output down
 # screen brightness
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
 bindsym XF86MonBrighnessDown exec "xbacklight -dec 5"
+
+# set keyboard layout
+exec setxkbmap -layout us -variant intl

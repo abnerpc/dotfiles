@@ -9,6 +9,7 @@ call plug#end()
 
 " vim-jedi config
 let g:jedi#popup_on_dot = 0
+let g:jedi#use_splits_not_buffers = "left"
 
 " netrw
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,*.git$,*.hg$'
@@ -41,7 +42,7 @@ let python_highlight_all=1
 let mapleader = ","
 
 filetype plugin on
-colorscheme slate
+colorscheme desert
 
 
 " custom conf for specific files
@@ -54,10 +55,10 @@ autocmd FileType netrw setl bufhidden=delete
 
 
 " Copy to clipboard
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
-nnoremap  <leader>yy  "+yy
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+yg_
+nnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
 
 " Paste from clipboard
 nnoremap <leader>p "+p
@@ -65,6 +66,8 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
+" Put current file path on clipboard register
+nnoremap <leader>c :let @+ = expand('%')<CR>
 
 " python path
 let g:python3_host_prog = '/home/abnerpc/.pyenv/versions/neovim/bin/python'
