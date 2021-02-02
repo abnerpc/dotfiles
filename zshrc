@@ -33,10 +33,7 @@ export EDITOR=/usr/local/bin/vim
 
 # golang
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/projects/go
-
-# Postgres.app
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+export GOPATH=$HOME/Dev/go
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -44,3 +41,5 @@ export LC_ALL=en_US.UTF-8
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source ~/Dev/loadsmart_conf
