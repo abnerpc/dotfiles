@@ -11,35 +11,40 @@ general {
         interval = 5
 }
 
-order += "volume master"
+order += "sysdata"
+# order += "ethernet eth0"
 order += "wireless _first_"
 order += "battery all"
+order += "volume main"
 order += "tztime local"
 
+sysdata {
+        format = "CPU: {cpu_used_percent}%, {cpu_temp:d}{temp_unit}"
+        format += ", Mem: {mem_used}/{mem_total}"
+}
+
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
+        format_up = "W:%quality at %essid"
         format_down = "W: down"
 }
 
 ethernet eth0 {
-        format_up = "E: %ip (%speed)"
+        format_up = "E: (%speed)"
         format_down = "E: down"
 }
 
 battery all {
 	format = "%status %percentage"
-	status_chr = "⚡ CHR"
-        status_bat = "🔋 BAT"
 }
 
-tztime local {
-        format = "%Y-%m-%d %H:%M"
-}
-
-volume master {
-        format = "♪: %volume"
+volume main {
+        format = "♪ %volume"
         format_muted = "♪: muted (%volume)"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M"
 }

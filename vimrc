@@ -42,7 +42,6 @@ let python_highlight_all=1
 let mapleader = ","
 
 filetype plugin on
-colorscheme desert
 
 
 " custom conf for specific files
