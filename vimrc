@@ -29,6 +29,7 @@ set nowrap
 set expandtab
 set noautoindent        " I indent my code myself.
 set nocindent           " I indent my code myself.
+set nosmartindent       " I indent my code myself.
 set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
 set nohlsearch		" no highlight search
@@ -42,7 +43,6 @@ let python_highlight_all=1
 let mapleader = ","
 
 filetype plugin on
-
 
 " custom conf for specific files
 augroup filetypedetect
@@ -71,7 +71,6 @@ nnoremap <leader>c :let @+ = expand('%')<CR>
 " python path
 let g:python3_host_prog = '/home/abnerpc/.pyenv/versions/neovim/bin/python'
 let g:python_host_prog = '/home/abnerpc/.pyenv/versions/neovim2/bin/python'
-
 
 " snippets
 inorea pdbt __import__("pdb").set_trace()

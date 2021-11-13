@@ -11,30 +11,48 @@ general {
         interval = 5
 }
 
+order += "service_status mgz"
+order += "service_status sch"
+order += "service_status chr"
 order += "sysdata"
-# order += "ethernet eth0"
-order += "wireless _first_"
-order += "battery all"
+order += "networkmanager"
+order += "battery_level"
 order += "volume main"
 order += "tztime local"
+order += "do_not_disturb"
+
+service_status mgz {
+        service_name = "MGZ"
+        host = "magazzino.loadsmart.io"
+        endpoint = "healthz"
+}
+
+service_status sch {
+        service_name = "SCH"
+        host = "scheduler-i9n.loadsmart.io"
+        endpoint = "healthz"
+}
+
+service_status chr {
+        service_name = "CHR"
+        host = "chronos.loadsmart.io"
+        endpoint = "healthz"
+}
 
 sysdata {
         format = "CPU: {cpu_used_percent}%, {cpu_temp:d}{temp_unit}"
-        format += ", Mem: {mem_used}/{mem_total}"
+        format += " MEM: {mem_used}"
 }
 
-wireless _first_ {
-        format_up = "W:%quality at %essid"
-        format_down = "W: down"
+networkmanager {
+        format_device = "[\?if=general_connection [\?soft ][\?color=ap_signal W: {ap_signal}% at {ap_ssid}][\?soft ][\?color=good]]"
 }
 
-ethernet eth0 {
-        format_up = "E: (%speed)"
-        format_down = "E: down"
-}
-
-battery all {
-	format = "%status %percentage"
+battery_level {
+	format = "BAT {percent}%"
+        notify_low_level = True
+        threshold_degraded = 12
+        threshold_bad = 10
 }
 
 volume main {
@@ -47,4 +65,8 @@ volume main {
 
 tztime local {
         format = "%Y-%m-%d %H:%M"
+}
+
+do_not_disturb {
+    format = "[\?color=state&show DND]"
 }

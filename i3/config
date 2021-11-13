@@ -14,6 +14,8 @@ workspace_layout tabbed
 exec --no-startup-id xsetroot -solid "#000"
 exec --no-startup-id "setxkbmap -layout us -variant intl"
 exec --no-startup-id dropbox start
+exec --no-startup-id "~/.screenlayout/laptop_and_external.sh"
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -24,6 +26,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -138,7 +141,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command py3status -c ~/.config/i3status/config
+        status_command py3status
 }
 
 # mode system exit
@@ -174,10 +177,12 @@ bindsym $mod+Shift+d mode "$output_display"
 bindsym $mod+l exec i3lock -c 000000
 
 # audio control
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse set Master 5%+ unmute && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 5%- unmute && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle && pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym XF86AudioMicMute exec "pactl set-source-mute 1 toggle"
+bindsym XF86MonBrightnessUp exec "brightnessctl -c backlight s +10%"
+bindsym XF86MonBrightnessDown exec "brightnessctl -c backlight s 10%-"
 
 # use tab key to move workspace or apps
 bindsym Mod1+Tab focus right
@@ -185,11 +190,14 @@ bindsym Mod1+Shift+Tab focus left
 bindsym $mod+Tab workspace next
 
 # screenshot
-bindsym Print exec xfce4-screenshooter
-bindsym Shift+Print exec xfce4-screenshooter -r
+bindsym Print exec "flameshot gui -p ~/Pictures/Screenshots"
 
 # move workspace to next output
 bindsym $mod+x move workspace to output down
 
 # reset display to only laptop
 bindsym $mod+Shift+x exec "~/.screenlayout/laptop_only.sh", mode "default"
+
+# scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
