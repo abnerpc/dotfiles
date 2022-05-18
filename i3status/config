@@ -11,33 +11,12 @@ general {
         interval = 5
 }
 
-order += "service_status mgz"
-order += "service_status sch"
-order += "service_status chr"
 order += "sysdata"
 order += "networkmanager"
 order += "battery_level"
 order += "volume main"
 order += "tztime local"
 order += "do_not_disturb"
-
-service_status mgz {
-        service_name = "MGZ"
-        host = "magazzino.loadsmart.io"
-        endpoint = "healthz"
-}
-
-service_status sch {
-        service_name = "SCH"
-        host = "scheduler-i9n.loadsmart.io"
-        endpoint = "healthz"
-}
-
-service_status chr {
-        service_name = "CHR"
-        host = "chronos.loadsmart.io"
-        endpoint = "healthz"
-}
 
 sysdata {
         format = "CPU: {cpu_used_percent}%, {cpu_temp:d}{temp_unit}"
