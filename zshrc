@@ -24,6 +24,8 @@ PATH=$PATH:/usr/local/go/bin
 export PATH
 
 # pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
@@ -33,5 +35,11 @@ export EDITOR=/usr/local/bin/vim
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export CPPFLAGS="-L$(brew --prefix openssl)/include"
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export OPENBLAS="$(brew --prefix openblas)"
 
 source ~/Dev/loadsmart_conf
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
