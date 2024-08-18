@@ -4,14 +4,16 @@ Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
 Plug 'ruanyl/vim-gh-line'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'navarasu/onedark.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+Plug 'folke/tokyonight.nvim'
+Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 
 " vim-jedi config
 let g:jedi#popup_on_dot = 0
-let g:jedi#use_splits_not_buffers = "left"
+"let g:jedi#use_splits_not_buffers = "left"
 
 " netrw
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,.git,.idea,.pytest_cache,.vscode'
@@ -40,13 +42,10 @@ set nobackup
 set nowritebackup
 set noswapfile
 set noea
+set number
 let python_highlight_all=1
-let mapleader = ","
-" enable setting title
-set title
-" configure title to look like: Vim /path/to/file
-"set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
-set titlestring=%{expand(\"%:h\")}
+let mapleader = " "
+colorscheme tokyonight-night
 
 filetype plugin on
 
@@ -74,11 +73,20 @@ vnoremap <leader>P "+P
 nnoremap <leader>c :let @+ = expand('%')<CR>
 
 " python path
-let g:python3_host_prog = '/Users/abnerpc/.pyenv/versions/neovim/bin/python'
-let g:python_host_prog = '/Users/abnerpc/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/home/abnerpc/.neovim/bin/python'
 
 " snippets
 inorea pdbt __import__("pdb").set_trace()
 inorea ipdbt __import__("ipdb").set_trace()
 inorea brk breakpoint()
 inorea ptr __import__("pytest").set_trace()
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+if has("gui_macvim")
+        set guifont=Menlo\ Regular:h18
+endif
