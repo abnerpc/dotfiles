@@ -1,0 +1,51 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "vim_mode": false,
+  "assistant": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "mistral:latest"
+    },
+    "version": "2"
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "buffer_font_features": {
+    "calt": false
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "show_whitespaces": "boundary",
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/.idea",
+    "**/.mypy_cache",
+    "**/.pytest_cache",
+    "**/.ropeproject",
+    "**/.venv"
+  ],
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  // Whether to restore last closed project when fresh Zed instance is opened.
+  "restore_on_startup": "none"
+}
