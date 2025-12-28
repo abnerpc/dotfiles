@@ -5,9 +5,10 @@ Plug 'davidhalter/jedi-vim'
 Plug 'ruanyl/vim-gh-line'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'folke/tokyonight.nvim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -70,10 +71,10 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
 " Put current file path on clipboard register
-nnoremap <leader>c :let @+ = expand('%')<CR>
+nnoremap <leader>c <cmd>let @+ = expand('%')<cr>
 
 " python path
-let g:python3_host_prog = '/home/abnerpc/.neovim/bin/python'
+let g:python3_host_prog = '/Users/abnerpc/dev/projects/personal/neovim/.venv/bin/python'
 
 " snippets
 inorea pdbt __import__("pdb").set_trace()
@@ -86,7 +87,4 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-if has("gui_macvim")
-        set guifont=Menlo\ Regular:h18
-endif
+nnoremap <leader>fs <cmd>lua require('telescope.builtin').treesitter()<cr>
